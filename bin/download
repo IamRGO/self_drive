@@ -1,0 +1,8 @@
+#!/bin/sh
+# use current directory
+scp pi@192.168.2.38:/home/pi/self_drive/temp.zip ~/self_drive/temp.zip
+rm -rf temp
+unzip -o ~/self_drive/temp.zip -d ~/self_drive/
+mv home/pi/usb/temp temp
+rm -rf home
+rm -rf ~/self_drive/temp.zip
