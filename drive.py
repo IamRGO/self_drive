@@ -16,6 +16,7 @@ camera = cv2.VideoCapture(-1)
 camera.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
 camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 camera.set(cv2.CAP_PROP_FPS, 30)
+camera.set(cv2.CAP_PROP_BUFFERSIZE, 1)
 
 print("loading model...")
 model = m.create_model()
@@ -31,7 +32,7 @@ while True:
   image = cv2.resize(frame, (320, 240))
 
   input_list = [
-    data.parse_image(result)
+    data.parse_image(image)
   ]
 
   print("running a prediction...")
