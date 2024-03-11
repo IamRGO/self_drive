@@ -20,18 +20,18 @@ def read_input(file_path):
   image = cv2.imread(file_path)
   img_tensor = tf.convert_to_tensor(image, dtype=tf.float32)
   img_gray = tf.image.rgb_to_grayscale(img_tensor)
-  img_resized = tf.image.resize_with_pad(img_gray, 320, 240)
+  img_resized = tf.image.resize_with_pad(img_gray, 80, 60)
   return img_resized
 
 def parse_image(image):
   rgb_image = mask_image(image)
   img_tensor = tf.convert_to_tensor(rgb_image, dtype=tf.float32)
   img_gray = tf.image.rgb_to_grayscale(img_tensor)
-  img_resized = tf.image.resize_with_pad(img_gray, 320, 240)
+  img_resized = tf.image.resize_with_pad(img_gray, 80, 60)
   return img_resized
 
 def mask_image(image):
-  image = cv2.resize(image, (320, 240))
+  image = cv2.resize(image, (80, 60))
 
   hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
   light_yellow = np.array([20, 50, 140])
